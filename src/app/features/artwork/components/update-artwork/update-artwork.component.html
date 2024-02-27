@@ -1,0 +1,69 @@
+<div class="container mt-40" *ngIf="loaded">
+  <div style="text-align: center;">
+  <h2>Update artwork</h2></div>
+  <form [formGroup]="editForm" (ngSubmit)="submitForm()">
+    <tui-carousel [duration]="4000" [(index)]="index">
+      <ng-container *ngFor="let file of art.downloadLinks">
+        <tui-island
+          *tuiItem
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <img
+            [src]="file"
+            alt="_blank"
+            loading="lazy"
+            style="width: 500px;"
+          />
+        </tui-island>
+      </ng-container>
+    </tui-carousel>
+    <tui-pagination
+      size="s"
+      class="pagination"
+      [length]="art.downloadLinks.length"
+      [(index)]="index"
+    ></tui-pagination>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <div class="tui-form__row" style="min-width: 50%;">
+      <tui-input formControlName="name" tuiHintContent="Name">
+        Name
+        <input tuiTextfield [required]="true" />
+        <span class="tui-required"></span>
+      </tui-input>
+    </div>
+    <tui-textarea
+    style="min-width: 50%;"
+      id="content_area"
+      formControlName="description"
+      [expandable]="true"
+      class="tui-space_bottom-4 field-large"
+    >
+      Content
+    </tui-textarea>
+    <div class="tui-form__buttons">
+      <button
+        size="m"
+        tuiButton
+        type="submit"
+        class="tui-form__button"
+        [class.tui-skeleton_light]="false"
+        [class.tui-skeleton]="false"
+      >
+        Submit
+      </button>
+      <button
+        appearance="accent"
+        size="m"
+        tuiButton
+        type="button"
+        class="tui-form__button"
+        [class.tui-skeleton_light]="false"
+        [class.tui-skeleton]="false"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<div>
+  <div>
+    <button
+      *ngIf="isAdmin"
+      size="m"
+      tuiButton
+      appearance="accent"
+      class="tui-form__button pt-3"
+      [class.tui-skeleton_light]="false"
+      [class.tui-skeleton]="false"
+      (click)="navigate('/artworks/create')"
+    >
+      Add artwork
+    </button>
+    <button
+      src="tuiIconPlusCircleLarge"
+      size="m"
+      tuiButton
+      appearance="primary"
+      class="tui-form__button pt-3"
+      [class.tui-skeleton_light]="false"
+      [class.tui-skeleton]="false"
+      (click)="navigate('/charts/population')"
+    >
+      Population charts
+    </button>
+    <button
+      src="tuiIconPlusCircleLarge"
+      size="m"
+      tuiButton
+      appearance="primary"
+      class="tui-form__button pt-3"
+      [class.tui-skeleton_light]="false"
+      [class.tui-skeleton]="false"
+      (click)="navigate('/charts/hospitalized/counts')"
+    >
+      Hospitalized count charts
+    </button>
+  </div>
+</div>
+<app-artwork-card *ngFor="let art of artworks" [artwork]="art">
+</app-artwork-card>

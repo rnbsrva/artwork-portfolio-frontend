@@ -1,0 +1,87 @@
+<div class="container mt-40">
+  <div style="display: flex; align-items: center; justify-content: center;">
+  <h2>Publish artwork</h2>
+  </div>
+  <form style="display: flex; justify-content: center; align-items: center; flex-direction: column;" [formGroup]="createArtworkForm" (ngSubmit)="submitForm()">
+    <div class="tui-form__row" style="min-width: 50%; margin-bottom: 20px;">
+      <tui-input formControlName="name" tuiHintContent="Name">
+        Name
+        <input tuiTextfield [required]="true" />
+        <span class="tui-required"></span>
+      </tui-input>
+    </div>
+    <tui-textarea
+    style="min-width: 50%;"
+      id="content_area"
+      formControlName="description"
+      [expandable]="true"
+      class="tui-space_bottom-4 field-large"
+    >
+      Content
+    </tui-textarea>
+    <div class="tui-form__row" style="min-width: 50%;">
+      <tui-input-files
+        accept="image/*"
+        textContent="hello"
+        [formControl]="control"
+        [multiple]="true"
+        (reject)="onReject($event)"
+      >
+        <div class="content">
+          <ng-template let-dragged>
+            <tui-marker-icon
+              mode="link"
+              src="tuiIconUploadCloudLarge"
+            ></tui-marker-icon>
+            <div>
+              Drag and drop file here or
+              <a tuiLink>click to upload</a>
+            </div>
+          </ng-template>
+        </div>
+      </tui-input-files>
+
+      <tui-files class="tui-space_top-1">
+        <tui-file
+          *ngFor="let file of control.valueChanges | async"
+          [file]="file"
+          [showDelete]="control.enabled"
+          (removed)="removeFile(file)"
+        ></tui-file>
+
+        <tui-file
+          *ngFor="let file of rejectedFiles"
+          state="error"
+          [file]="file"
+          [showDelete]="control.enabled"
+          (removed)="clearRejected(file)"
+        ></tui-file>
+      </tui-files>
+    </div>
+
+    <div class="tui-form__buttons">
+      <button
+        size="m"
+        tuiButton
+        type="submit"
+        class="tui-form__button"
+        [class.tui-skeleton_light]="false"
+        [class.tui-skeleton]="false"
+      >
+        Submit
+      </button>
+      <button
+        appearance="accent"
+        size="m"
+        tuiButton
+        type="button"
+        class="tui-form__button"
+        [class.tui-skeleton_light]="false"
+        [class.tui-skeleton]="false"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

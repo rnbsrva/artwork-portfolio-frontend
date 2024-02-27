@@ -1,0 +1,60 @@
+<div class="form-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSignInAttempt()">
+    <div class="form-group">
+      <label for="name">Username:</label>
+      <input
+        type="text"
+        id="email"
+        name="email"
+        placeholder="Enter username"
+        [required]="true"
+        formControlName="username"
+        autocomplete="off"
+      />
+    </div>
+    <div
+      *ngIf="
+        loginForm.get('username')?.invalid &&
+        (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)
+      "
+    >
+      <div
+        *ngIf="loginForm.get('username')?.errors"
+        class="alert alert-danger"
+        role="alert"
+        style="color: red"
+      >
+        Username is invalid
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        formControlName="password"
+        placeholder="password"
+        [required]="true"
+      />
+    </div>
+    <div
+      *ngIf="
+        loginForm.get('password')?.invalid &&
+        (loginForm.get('password')?.dirty ||
+          loginForm.get('password')?.touched) &&
+        loginForm.get('password')?.errors
+      "
+      class="alert alert-danger"
+      role="alert"
+      style="color: red"
+    >
+      Password is invalid
+    </div>
+    <button type="submit" class="submit-btn">Login</button>
+  </form>
+
+  <p>Don't have account? <a href="/sign-up">Signup</a></p>
+</div>
+<h4 class="bottom-text">Akerke Orynbasarova IT-2207</h4>
