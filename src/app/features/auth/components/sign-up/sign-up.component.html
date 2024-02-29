@@ -1,8 +1,9 @@
-<div class="form-container">
-  <h2>Signup</h2>
+<div  class="background-photo bg-image" style="padding-top: 50px;">
+<div class="form-container"  style="padding: 50px; background-color: white; width: 50%; min-height: 500px; font-family: Verdana, Geneva, Tahoma, sans-serif;  border-radius: 10%; border-color: rgb(226, 226, 226);">
+  <h4 style="color: #3f0626; font-family: Merriweather; font-weight: 900;">Sign up</h4>
   <form [formGroup]="registerForm" (ngSubmit)="onRegisterAttempt()">
     <div class="form-group">
-      <label for="firstName">First name</label>
+      <label  for="firstName">First name</label>
       <input
         type="text"
         id="firstName"
@@ -26,7 +27,7 @@
       />
     </div>
     <div class="form-group">
-      <label for="name">Username</label>
+      <label  for="name">Username</label>
       <input
         type="text"
         id="name"
@@ -52,7 +53,7 @@
     </div>
 
     <div class="form-group">
-      <label for="age">Age</label>
+      <label  for="age">Age</label>
       <input
         type="number"
         min="8"
@@ -67,7 +68,7 @@
     </div>
 
     <div class="form-group">
-      <label for="Email">Email</label>
+      <label  for="Email">Email</label>
       <input
         type="email"
         name="email"
@@ -78,7 +79,7 @@
       />
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
+      <label  for="password">Password</label>
       <input
         type="password"
         name="password"
@@ -88,7 +89,18 @@
         formControlName="password"
       />
     </div>
-    <button type="submit" class="submit-btn">Registration</button>
+    <button style="background-color: rgb(108, 83, 112);  font-family: Merriweather; font-weight: 900;" type="submit" class="submit-btn">Registration</button>
   </form>
-  <p>Already have account? <a href="/sign-in">Login</a></p>
+   
+    <p style="padding-left: 10px;  font-family: Merriweather; font-weight: 900; ">Already have account? <a href="/sign-in">Login</a></p>
 </div>
+
+</div>
+<footer class="bg-body-tertiary text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05); font-size: 14px; font-family: Merriweather; font-weight: 500; ">
+    © 2020 Copyright:
+    <a class="text-body" href="">Akerke Orynbasarova IT-2207</a>
+  </div>
+  <!-- Copyright -->
+</footer>

@@ -1,9 +1,14 @@
 :host {
     display: block;
-    width: 50rem;
 }
 
 .axes {
     height: 12.5rem;
     color: #bc71c9;
+}
+
+.background-photo {
+    background-image: url(../../../../../assets/chart-pop.jpg);
+    height: 94vh;
+    background-size: cover;
 }

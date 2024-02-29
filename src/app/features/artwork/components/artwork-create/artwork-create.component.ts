@@ -9,6 +9,7 @@ import {
 import { TuiFileLike } from '@taiga-ui/kit';
 import { ToastrService } from 'ngx-toastr';
 import { Artwork } from '../../model/artwork';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-artwork-create',
@@ -24,7 +25,8 @@ export class ArtworkCreateComponent {
   constructor(
     private readonly _fb: FormBuilder,
     private readonly _http: HttpClient,
-    private readonly _tostr: ToastrService
+    private readonly _tostr: ToastrService,
+    private readonly _router: Router
   ) {
     this.createArtworkForm = this._fb.group({
       name: [null, Validators.required],
@@ -58,8 +60,11 @@ export class ArtworkCreateComponent {
         },
       })
       .subscribe(() => {
-        this._tostr.error('Artwork created successfully');
+        this._tostr.success('Artwork created successfully');
         this.createArtworkForm.reset();
+        setTimeout(() => {
+            this._router.navigate(['/artworks'])
+        },500)
       });
   }
 

@@ -56,6 +56,7 @@ export class HospitalizedCountComponent implements OnInit {
     this.load('2020-04-08');
 
     this.control.valueChanges.pipe(debounceTime(1000)).subscribe((value) => {
+      console.log(value)
       this.load(this.datePipe.transform(value, 'yyyy-MM-dd')!);
     });
     let user = JSON.parse(localStorage.getItem('user') as any);

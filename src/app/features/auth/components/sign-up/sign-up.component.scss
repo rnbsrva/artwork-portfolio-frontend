@@ -4,14 +4,21 @@
     box-sizing: border-box;
 }
 
+.background-photo {
+    background-image: url(../../../../../assets/background.jpg);
+    height: 130vh;
+    background-size: cover;
+}
+
 body {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: Merriweather; font-weight: 900;
 }
 
-h2 {
+h4 {
     text-align: center;
     margin-bottom: 30px;
 }
@@ -32,6 +39,7 @@ h2 {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    font-family: Merriweather; font-weight: 900;
 }
 
 .form-group input {
@@ -39,7 +47,9 @@ h2 {
     padding: 8px;
     font-size: 10px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 10px;
+    font-family: Merriweather; font-weight: 100;
+
 }
 
 .submit-btn {
@@ -49,7 +59,7 @@ h2 {
     background-color: #472dbb;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -69,3 +79,4 @@ p {
     width: 100%;
     text-align: center;
 }
+

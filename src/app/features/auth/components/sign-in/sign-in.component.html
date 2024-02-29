@@ -1,5 +1,7 @@
-<div class="form-container">
-  <h2>Login</h2>
+<div  class="background-photo bg-image" style="padding-top: 50px;">
+
+<div class="form-container"  style="background-color: white; padding: 30px; width: 40%; min-width: 400px; min-height: 400px; font-family: Verdana, Geneva, Tahoma, sans-serif;  border-radius: 10%; border-color: rgb(226, 226, 226);">
+  <h4 >Login</h4>
   <form [formGroup]="loginForm" (ngSubmit)="onSignInAttempt()">
     <div class="form-group">
       <label for="name">Username:</label>
@@ -52,9 +54,17 @@
     >
       Password is invalid
     </div>
-    <button type="submit" class="submit-btn">Login</button>
+    <button type="submit" style="background-color: rgb(108, 83, 112);" class="submit-btn">Login</button>
   </form>
 
-  <p>Don't have account? <a href="/sign-up">Signup</a></p>
+  <p >Don't have account? <a  href="/sign-up">Signup</a></p>
 </div>
-<h4 class="bottom-text">Akerke Orynbasarova IT-2207</h4>
+</div>
+<footer class="bg-body-tertiary text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05); font-size: 14px; font-family: Merriweather; font-weight: 500; ">
+    © 2020 Copyright:
+    <a class="text-body" href="">Akerke Orynbasarova IT-2207</a>
+  </div>
+  <!-- Copyright -->
+</footer>

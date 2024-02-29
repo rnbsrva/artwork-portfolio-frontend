@@ -1,8 +1,8 @@
 <div class="container mt-40" *ngIf="loaded">
   <div style="text-align: center;">
-  <h2>Update artwork</h2></div>
+  <h2 style="margin-top: 40px; font-family: Merriweather;">Update artwork</h2></div>
   <form [formGroup]="editForm" (ngSubmit)="submitForm()">
-    <tui-carousel [duration]="4000" [(index)]="index">
+    <tui-carousel [duration]="4000" [(index)]="index" >
       <ng-container *ngFor="let file of art.downloadLinks">
         <tui-island
           *tuiItem
@@ -25,18 +25,19 @@
     ></tui-pagination>
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
     <div class="tui-form__row" style="min-width: 50%;">
-      <tui-input formControlName="name" tuiHintContent="Name">
+      <tui-input formControlName="name" style="font-family: Merriweather;" tuiHintContent="Name">
         Name
-        <input tuiTextfield [required]="true" />
+        <input style="font-family: Merriweather;"  tuiTextfield [required]="true" />
         <span class="tui-required"></span>
       </tui-input>
     </div>
     <tui-textarea
-    style="min-width: 50%;"
+    style="min-width: 50%; font-family: Merriweather;"
       id="content_area"
       formControlName="description"
       [expandable]="true"
       class="tui-space_bottom-4 field-large"
+      
     >
       Content
     </tui-textarea>

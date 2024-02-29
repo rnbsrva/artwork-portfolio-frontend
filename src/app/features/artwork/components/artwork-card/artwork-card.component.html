@@ -1,21 +1,22 @@
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding-bottom: 100px;">
-<div style="max-width: 40%; min-height: 50%;" class="news-wrapper border pt-10" tuiPlatform="web">
+<div style="display: flex;  flex-direction: column; justify-content: center; align-items: center; padding-bottom: 100px;">
+<div style="max-width: 50%; margin-top: 4%; padding: 10px 30px 30px 30px; min-width: 400px; min-height: 50%; border-radius: 30px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); " class=" pt-10" tuiPlatform="web">
   <div tuiCardLarge tuiSurface="elevated">
     <header tuiHeader>
-      <h2 tuiTitle class="center-title">{{ artwork.name }}</h2>
+      <h2 style="font-family: Merriweather;" tuiTitle class="center-title">{{ artwork.name }}</h2>
     </header>
     <section>
       <tui-carousel [duration]="3500" [(index)]="index">
-        <ng-container *ngFor="let file of artwork.downloadLinks">
+        <ng-container  *ngFor="let file of artwork.downloadLinks">
           <tui-island
-            *tuiItem
-            style="display: flex; justify-content: center; align-items: center;"
+            *tuiItem 
+            [hoverable]="true"
+            style="display: flex; justify-content: center; align-items: center; margin-bottom: 30px; "
           >
             <img
               [src]="file"
               alt="_blank"
               loading="lazy"
-              style="width: 500px; "
+              style="max-width: 500px;"
             />
           </tui-island>
         </ng-container>
@@ -26,8 +27,8 @@
         [length]="artwork.downloadLinks.length"
         [(index)]="index"
       ></tui-pagination>
-      <div>Description: {{ artwork.description }}</div>
-      <div class="float-right" *ngIf="isAdmin">
+      <div style="font-family: Merriweather;">Description: {{ artwork.description }}</div>
+      <div style="font-family: Merriweather;" class="float-right" *ngIf="isAdmin">
         <div>
           {{ "Published at: " + (artwork.createdAt | date) }}
         </div>
